@@ -15,7 +15,7 @@ Author="${Github##*com/}"
 Github_Tags="https://api.github.com/repos/${Author}/releases/latest"
 
 function Stable(){
-    Github_Tags="https://api.github.com/repos/${Author}/releases/tags/openwrt-stable"
+    Github_Tags="https://api.github.com/repos/${Author}/releases/tags/AutoUpdate"
     wget -q ${Github_Tags} -O - > /tmp/stable_Tags
     if [[ $CURRENT_DEVICE == x86-64 ]];then
     	GET_FullVersion=$(cat /tmp/stable_Tags | egrep -o "openwrt-${CURRENT_DEVICE}-stable-[0-9]+.[0-9]+.[0-9]+.[0-9]+.[a-z]+.[a-z]+" | awk 'END {print}')
